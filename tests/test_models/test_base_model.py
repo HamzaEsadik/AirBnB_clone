@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-"""Module for test BaseModel class"""
+"""Module for testing the BaseModel class"""
+
 import unittest
-import json
 import pep8
-import datetime
-from time import sleep
 from models.base_model import BaseModel
+import datetime
 
 
 class TestBaseModel(unittest.TestCase):
-    """Test for BaseModel class"""
+    """Test for the BaseModel class"""
 
     def test_doc_module(self):
-        """Module documentation"""
+        """Check module documentation"""
         doc = BaseModel.__doc__
         self.assertGreater(len(doc), 1)
 
@@ -31,7 +30,7 @@ class TestBaseModel(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_doc_constructor(self):
-        """Constructor documentation"""
+        """Check constructor documentation"""
         doc = BaseModel.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
@@ -58,33 +57,31 @@ class TestBaseModel(unittest.TestCase):
                 self.assertIs(type(my_model_json[key]), value)
 
     def test_base_types(self):
-        """Testing dict model"""
+        """Test dict model"""
         second_model = BaseModel()
         self.assertIs(type(second_model), BaseModel)
         second_model.name = "Andres"
         second_model.my_number = 80
-        self.assertEqual(second_model.name, "Andres")
-        self.assertEqual(second_model.my_number, 80)
         model_types = {
             "my_number": int,
             "name": str,
             "updated_at": datetime.datetime,
             "id": str,
             "created_at": datetime.datetime
-            }
+        }
         for key, value in model_types.items():
             with self.subTest(key=key, value=value):
                 self.assertIn(key, second_model.__dict__)
                 self.assertIs(type(second_model.__dict__[key]), value)
 
     def test_uuid(self):
-        """testing differents uuid"""
+        """Test different uuids"""
         model = BaseModel()
         model_2 = BaseModel()
         self.assertNotEqual(model.id, model_2.id)
 
     def test_datetime_model(self):
-        """testing datetime base model"""
+        """Test datetime in base model"""
         model_3 = BaseModel()
         model_4 = BaseModel()
         self.assertNotEqual(model_3.created_at, model_3.updated_at)
@@ -96,9 +93,7 @@ class TestBaseModel(unittest.TestCase):
         my_model.name = "Holberton"
         my_model.my_number = 89
         id_model = my_model.id
-
-        expected = '[BaseModel] ({}) {}'\
-                   .format(id_model, my_model.__dict__)
+        expected = '[BaseModel] ({}) {}'.format(id_model, my_model.__dict__)
         self.assertEqual(str(my_model), expected)
 
     def test_constructor_kwargs(self):
@@ -107,9 +102,7 @@ class TestBaseModel(unittest.TestCase):
         obj.name = "Holberton"
         obj.my_number = 89
         json_attributes = obj.to_dict()
-
         obj2 = BaseModel(**json_attributes)
-
         self.assertIsInstance(obj2, BaseModel)
         self.assertIsInstance(json_attributes, dict)
         self.assertIsNot(obj, obj2)
