@@ -7,7 +7,7 @@ import models
 
 class BaseModel():
     '''BaseModel Class: A base class for other model classes'''
-    
+
     def __init__(self, *args, **kwargs):
         '''Constructor for BaseModel class'''
         if kwargs:
@@ -42,4 +42,3 @@ class BaseModel():
         new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
         new_dict['__class__'] = self.__class__.__name__
         return (new_dict)
-    
