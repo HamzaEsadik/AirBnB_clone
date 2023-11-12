@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-'''Command Interpreter for Models'''
+'''
+Command Interpreter
+'''
 import cmd
 import shlex
 import models
@@ -14,6 +16,7 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
+    '''command line class'''
     prompt = '(hbnb) '
     __classes = [
         "Amenity",
@@ -26,7 +29,9 @@ class HBNBCommand(cmd.Cmd):
     ]
 
     def do_create(self, args):
-        '''Create a new instance of BaseModel, save it, and print the id'''
+        '''
+        Creating a new instance of BaseModel, save it, and print the id
+        '''
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
@@ -38,7 +43,9 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
 
     def do_show(self, args):
-        '''Print the string representation of a specific instance'''
+        '''
+        Printing the string representation of a specific instance
+        '''
         strings = args.split()
         if len(strings) == 0:
             print("** class name missing **")
@@ -55,7 +62,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, args):
-        '''Delete an instance.'''
+        '''
+        Deleting an instance
+        '''
         args = args.split()
         objects = models.storage.all()
 
@@ -74,7 +83,9 @@ class HBNBCommand(cmd.Cmd):
                 print('** no instance found **')
 
     def do_all(self, args):
-        '''Print a string representation of all instances.'''
+        '''
+        Printing a string representation of all instances
+        '''
         args = args.split()
         objects = models.storage.all()
         new_list = []
@@ -92,7 +103,9 @@ class HBNBCommand(cmd.Cmd):
             print(new_list)
 
     def do_update(self, args):
-        '''Update an instance.'''
+        '''
+        Update an instance
+        '''
         objects = models.storage.all()
         args = args.split(" ")
 
@@ -118,7 +131,9 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
 
     def check_class_name(self, name=""):
-        """Check if stdin user typed class name and id."""
+        """
+        Checking if stdin user typed class name and id
+        """
         if len(name) == 0:
             print("** class name missing **")
             return False
@@ -126,7 +141,9 @@ class HBNBCommand(cmd.Cmd):
             return True
 
     def check_class_id(self, name=""):
-        """Check class id."""
+        """
+        Checking class id
+        """
         if len(name.split(' ')) == 1:
             print("** instance id missing **")
             return False
@@ -134,7 +151,9 @@ class HBNBCommand(cmd.Cmd):
             return True
 
     def found_class_name(self, name=""):
-        """Find the name class."""
+        """
+        Finding the name class
+        """
         if self.check_class_name(name):
             args = shlex.split(name)
             if args[0] in HBNBCommand.__classes:
@@ -146,16 +165,22 @@ class HBNBCommand(cmd.Cmd):
                     return None
 
     def do_quit(self, args):
-        '''Quit command to exit the program.'''
+        '''
+        Quiting command to exit the program
+        '''
         return True
 
     def do_EOF(self, args):
-        '''Handles end of file.'''
+        '''
+        Handles end of file
+        '''
         return True
 
     def emptyline(self):
-        '''Don't execute anything when the user presses
-        enter with an empty line.'''
+        '''
+        Don't execute anything when the user presses
+        enter with an empty line
+        '''
         pass
 
 
