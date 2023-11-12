@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-'''Method Command Interpreter'''
+'''Command Interpreter for Models'''
 import cmd
 import shlex
 import models
-from datetime import datetime
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -12,7 +11,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
@@ -27,23 +25,19 @@ class HBNBCommand(cmd.Cmd):
     ]
 
     def do_create(self, args):
-        '''Create a new instance of BaseModel, save it and prints the id
-           Usage: create <class name>
-        '''
+        '''Create a new instance of BaseModel, save it, and print the id'''
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
-            new_creation = eval(args[0] + '()')
+            new_instance = eval(args[0] + '()')
             models.storage.save()
-            print(new_creation.id)
+            print(new_instance.id)
 
     def do_show(self, args):
-        '''Prints the string representation of a specific instance
-           Usage: show <class name> <id>
-        '''
+        '''Print the string representation of a specific instance'''
         strings = args.split()
         if len(strings) == 0:
             print("** class name missing **")
@@ -52,17 +46,15 @@ class HBNBCommand(cmd.Cmd):
         elif len(strings) == 1:
             print("** instance id missing **")
         else:
-            obj = models.storage.all()
+            obj_dict = models.storage.all()
             key_value = strings[0] + '.' + strings[1]
-            if key_value in obj:
-                print(obj[key_value])
+            if key_value in obj_dict:
+                print(obj_dict[key_value])
             else:
                 print("** no instance found **")
 
     def do_destroy(self, args):
-        '''Delete an instance
-           Usage: destroy <class name> <id>
-        '''
+        '''Delete an instance.'''
         args = args.split()
         objects = models.storage.all()
 
@@ -74,16 +66,14 @@ class HBNBCommand(cmd.Cmd):
             print('** instance id missing **')
         else:
             key_find = args[0] + '.' + args[1]
-            if key_find in objects.keys():
+            if key_find in objects:
                 objects.pop(key_find, None)
                 models.storage.save()
             else:
                 print('** no instance found **')
 
     def do_all(self, args):
-        '''Print a string representation of all instances
-           Usage: all <class name>
-        '''
+        '''Print a string representation of all instances.'''
         args = args.split()
         objects = models.storage.all()
         new_list = []
@@ -101,9 +91,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_list)
 
     def do_update(self, args):
-        '''update an instance
-           Usage update <class name> <id> <attribute name> "<attribute value>"
-        '''
+        '''Update an instance.'''
         objects = models.storage.all()
         args = args.split(" ")
 
@@ -137,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
             return True
 
     def check_class_id(self, name=""):
-        """Check class id"""
+        """Check class id."""
         if len(name.split(' ')) == 1:
             print("** instance id missing **")
             return False
@@ -157,17 +145,16 @@ class HBNBCommand(cmd.Cmd):
                     return None
 
     def do_quit(self, args):
-        '''<Quit> Command To Exit The Program'''
+        '''Quit command to exit the program.'''
         return True
 
     def do_EOF(self, args):
-        '''Handles end of file'''
+        '''Handles end of file.'''
         return True
 
     def emptyline(self):
-        '''dont execute anything when user
-           press enter an empty line
-        '''
+        '''Don't execute anything when the user presses
+        enter with an empty line.'''
         pass
 
 if __name__ == '__main__':
