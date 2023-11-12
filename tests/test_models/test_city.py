@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""Module for testing the City class"""
-
+"""Module for test City class"""
 import unittest
+import json
 import pep8
+import datetime
 from models.city import City
 from models.base_model import BaseModel
 
 
 class TestCity(unittest.TestCase):
     """Test City class implementation"""
-
     def test_doc_module(self):
-        """Check module documentation"""
+        """Module documentation"""
         doc = City.__doc__
         self.assertGreater(len(doc), 1)
 
@@ -30,12 +30,12 @@ class TestCity(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_doc_constructor(self):
-        """Check constructor documentation"""
+        """Constructor documentation"""
         doc = City.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
     def test_class(self):
-        """Validate the types of the attributes and class"""
+        """Validate the types of the attributes an class"""
         with self.subTest(msg='Inheritance'):
             self.assertTrue(issubclass(City, BaseModel))
 

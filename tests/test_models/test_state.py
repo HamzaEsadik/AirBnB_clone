@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-"""Module for testing the State class"""
+"""Module for test State class"""
 import unittest
+import json
 import pep8
+import datetime
 from models.state import State
 from models.base_model import BaseModel
 
 
 class TestState(unittest.TestCase):
     """Test State class implementation"""
-
     def test_doc_module(self):
-        """Check module documentation"""
+        """Module documentation"""
         doc = State.__doc__
         self.assertGreater(len(doc), 1)
 
@@ -29,12 +30,12 @@ class TestState(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_doc_constructor(self):
-        """Check constructor documentation"""
+        """Constructor documentation"""
         doc = State.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
     def test_class(self):
-        """Validate the types of the attributes and class"""
+        """Validate the types of the attributes an class"""
         with self.subTest(msg='Inheritance'):
             self.assertTrue(issubclass(State, BaseModel))
 

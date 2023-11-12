@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""Module for testing the Place class"""
-
+"""Module for test Place class"""
 import unittest
+import json
 import pep8
+import datetime
 from models.place import Place
 from models.base_model import BaseModel
 
 
 class TestPlace(unittest.TestCase):
-    """Test Place class implementation"""
-
+    """Test State class implementation"""
     def test_doc_module(self):
-        """Check module documentation"""
+        """Module documentation"""
         doc = Place.__doc__
         self.assertGreater(len(doc), 1)
 
@@ -30,12 +30,12 @@ class TestPlace(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_doc_constructor(self):
-        """Check constructor documentation"""
+        """Constructor documentation"""
         doc = Place.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
     def test_class(self):
-        """Validate the types of the attributes and class"""
+        """Validate the types of the attributes an class"""
         with self.subTest(msg='Inheritance'):
             self.assertTrue(issubclass(Place, BaseModel))
 
