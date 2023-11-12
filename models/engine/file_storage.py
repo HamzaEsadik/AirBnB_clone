@@ -15,7 +15,7 @@ class FileStorage():
     """
     FileStorage class:
     ------------------
-    Handles the serialization and deserialization of 
+    Handles the serialization and deserialization of
     instances to and from JSON.
 
     Attributes:
