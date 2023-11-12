@@ -4,7 +4,6 @@ import unittest
 import json
 import pep8
 import datetime
-
 from models.city import City
 from models.base_model import BaseModel
 

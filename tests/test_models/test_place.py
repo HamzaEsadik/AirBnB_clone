@@ -4,7 +4,6 @@ import unittest
 import json
 import pep8
 import datetime
-
 from models.place import Place
 from models.base_model import BaseModel
 
@@ -52,6 +51,7 @@ class TestPlace(unittest.TestCase):
             self.assertIsInstance(Place.latitude, float)
             self.assertIsInstance(Place.longitude, float)
             self.assertIsInstance(Place.amenity_ids, list)
+
 
 if __name__ == '__main__':
     unittest.main()

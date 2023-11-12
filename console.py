@@ -12,6 +12,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     __classes = [
@@ -156,6 +157,7 @@ class HBNBCommand(cmd.Cmd):
         '''Don't execute anything when the user presses
         enter with an empty line.'''
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
