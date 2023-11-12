@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-'''Base Model Module: Defines the BaseModel class'''
+'''the module base_model'''
 import uuid
 from datetime import datetime
 import models
 
 
 class BaseModel():
-    '''BaseModel Class: A base class for other model classes'''
-
+    '''class: BaseModel'''
     def __init__(self, *args, **kwargs):
-        '''Constructor for BaseModel class'''
+        '''class constructor for class a BaseModel'''
         if kwargs:
             kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
                                                      '%Y-%m-%dT%H:%M:%S.%f')
@@ -26,17 +25,17 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        '''String representation of BaseModel instance'''
+        '''string of BaseModel instance'''
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-        '''Updates 'updated_at' instance with the current datetime'''
+        '''updates 'updated_at' instance with current datetime'''
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        '''Dictionary representation of the instance'''
+        '''a dictionary representation of instance'''
         new_dict = dict(self.__dict__)
         new_dict['created_at'] = self.__dict__['created_at'].isoformat()
         new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
