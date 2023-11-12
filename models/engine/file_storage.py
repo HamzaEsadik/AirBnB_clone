@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """file_storage.py module"""
+
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -14,24 +15,35 @@ class FileStorage():
     """
     FileStorage class:
     ------------------
+    Handles the serialization and deserialization of 
+    instances to and from JSON.
+
+    Attributes:
+    __file_path (str): Path to the JSON file.
+    __objects (dict): Dictionary to store instances.
+
+    Methods:
+    all(self): Returns the dictionary __objects.
+    new(self, obj): Adds an object to the dictionary __objects.
+    save(self): Serializes __objects to the JSON file.
+    reload(self): Deserializes the JSON file to __objects.
     """
+
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
         """
-        public instance method that returns the
-        dictionary __objects.
+        Returns the dictionary __objects.
         """
         return FileStorage.__objects
 
     def new(self, obj):
         """
-        public instance method that sets in __objects
-        the obj with key <obj class name>.id
-        Variables:
-        ----------
-        key [str] -- key format generated.
+        Adds an object to the dictionary __objects.
+
+        Args:
+        obj: The object to be added.
         """
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -39,11 +51,7 @@ class FileStorage():
 
     def save(self):
         """
-        public instance method that serializes __objects
-        to the JSON file (path: __file_path).
-        Variables:
-        ----------
-        new_dict [dict] -- keys and values to build JSON.
+        Serializes __objects to the JSON file.
         """
         new_dict = {}
         for key, value in FileStorage.__objects.items():
@@ -53,8 +61,7 @@ class FileStorage():
 
     def reload(self):
         """
-        public instance method that deserializes a JSON
-        file to __objects.
+        Deserializes the JSON file to __objects.
         """
         try:
             with open(FileStorage.__file_path, mode='r') as my_file:
