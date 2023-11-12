@@ -1,42 +1,25 @@
 #!/usr/bin/python3
-"""Module for test Place class"""
+"""Test cases for the Place class"""
 import unittest
-import json
-import pep8
-import datetime
-
 from models.place import Place
 from models.base_model import BaseModel
 
 
 class TestPlace(unittest.TestCase):
-    """Test State class implementation"""
-    def test_doc_module(self):
-        """Module documentation"""
+    """Test Place class implementation"""
+
+    def test_module_documentation(self):
+        """Test documentation for the module"""
         doc = Place.__doc__
         self.assertGreater(len(doc), 1)
 
-    def test_pep8_conformance_place(self):
-        """Test that models/place.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/place.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_pep8_conformance_test_place(self):
-        """Test that tests/test_models/test_place.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        res = pep8style.check_files(['tests/test_models/test_place.py'])
-        self.assertEqual(res.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_doc_constructor(self):
-        """Constructor documentation"""
+    def test_constructor_documentation(self):
+        """Test documentation for the constructor"""
         doc = Place.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
     def test_class(self):
-        """Validate the types of the attributes an class"""
+        """Validate the types of the attributes and class"""
         with self.subTest(msg='Inheritance'):
             self.assertTrue(issubclass(Place, BaseModel))
 

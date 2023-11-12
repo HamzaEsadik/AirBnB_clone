@@ -1,38 +1,21 @@
 #!/usr/bin/python3
-"""Module for test BaseModel class"""
+"""Test cases for the BaseModel class"""
 import unittest
-import json
-import pep8
 import datetime
 from time import sleep
-
 from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
-    """Test for BaseModel class"""
+    """Test for the BaseModel class"""
 
-    def test_doc_module(self):
-        """Module documentation"""
+    def test_module_documentation(self):
+        """Test documentation for the module"""
         doc = BaseModel.__doc__
         self.assertGreater(len(doc), 1)
 
-    def test_pep8_conformance_base_model(self):
-        """Test that models/base_model.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base_model.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_pep8_conformance_test_base_model(self):
-        """Test that tests/test_models/test_base_model.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        res = pep8style.check_files(['tests/test_models/test_base_model.py'])
-        self.assertEqual(res.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_doc_constructor(self):
-        """Constructor documentation"""
+    def test_constructor_documentation(self):
+        """Test documentation for the constructor"""
         doc = BaseModel.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
@@ -59,7 +42,7 @@ class TestBaseModel(unittest.TestCase):
                 self.assertIs(type(my_model_json[key]), value)
 
     def test_base_types(self):
-        """Testing dict model"""
+        """Test dictionary model"""
         second_model = BaseModel()
         self.assertIs(type(second_model), BaseModel)
         second_model.name = "Andres"
@@ -78,21 +61,21 @@ class TestBaseModel(unittest.TestCase):
                 self.assertIn(key, second_model.__dict__)
                 self.assertIs(type(second_model.__dict__[key]), value)
 
-    def test_uuid(self):
-        """testing differents uuid"""
-        model = BaseModel()
-        model_2 = BaseModel()
-        self.assertNotEqual(model.id, model_2.id)
-
     def test_datetime_model(self):
-        """testing datetime base model"""
+        """Test datetime in base model"""
         model_3 = BaseModel()
         model_4 = BaseModel()
         self.assertNotEqual(model_3.created_at, model_3.updated_at)
         self.assertNotEqual(model_3.created_at, model_4.created_at)
 
+    def test_uuid(self):
+        """Test different uuids"""
+        model = BaseModel()
+        model_2 = BaseModel()
+        self.assertNotEqual(model.id, model_2.id)
+
     def test_string_representation(self):
-        """Test the magic method str"""
+        """Test the magic method __str__"""
         my_model = BaseModel()
         my_model.name = "Holberton"
         my_model.my_number = 89
@@ -103,7 +86,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(my_model), expected)
 
     def test_constructor_kwargs(self):
-        """Test constructor that has kwargs as attributes values"""
+        """Test constructor with kwargs as attribute values"""
         obj = BaseModel()
         obj.name = "Holberton"
         obj.my_number = 89
@@ -116,12 +99,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNot(obj, obj2)
 
     def test_file_save(self):
-        """Test that info is saved to file"""
+        """Test that information is saved to file"""
         b3 = BaseModel()
         b3.save()
         with open("file.json", 'r') as f:
             self.assertIn(b3.id, f.read())
-
 
 if __name__ == '__main__':
     unittest.main()

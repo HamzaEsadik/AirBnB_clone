@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-'''class inherent of Base Model'''
+'''Place Class - Inheritance from BaseModel'''
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    '''class Place'''
-
+    '''Place Class - Represents a place'''
     city_id = ""
     user_id = ""
     name = ""
@@ -19,5 +18,5 @@ class Place(BaseModel):
     amenity_ids = []
 
     def __init__(self, *args, **kwargs):
-        """initializes Place"""
+        """Initializes Place instance"""
         super().__init__(*args, **kwargs)

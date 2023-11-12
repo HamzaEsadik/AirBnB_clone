@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-'''class inherent of BaseModel'''
+'''Amenity Class - Inheritance from BaseModel'''
 from models.base_model import BaseModel
 
-
 class Amenity(BaseModel):
-    '''class amenity'''
-
+    '''Amenity Class - Represents an amenity'''
     name = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes Amenity"""
+        """Initializes Amenity instance"""
         super().__init__(*args, **kwargs)
