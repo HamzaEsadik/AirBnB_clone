@@ -4,6 +4,7 @@ import unittest
 import json
 import pep8
 import datetime
+
 from models.user import User
 from models.base_model import BaseModel
 
@@ -44,7 +45,6 @@ class TestUser(unittest.TestCase):
             self.assertIsInstance(User.password, str)
             self.assertIsInstance(User.first_name, str)
             self.assertIsInstance(User.last_name, str)
-
 
 if __name__ == '__main__':
     unittest.main()

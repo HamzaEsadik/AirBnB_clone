@@ -4,6 +4,7 @@ import unittest
 import json
 import pep8
 import datetime
+
 from models.state import State
 from models.base_model import BaseModel
 
@@ -41,7 +42,6 @@ class TestState(unittest.TestCase):
 
         with self.subTest(msg='Attributes'):
             self.assertIsInstance(State.name, str)
-
 
 if __name__ == '__main__':
     unittest.main()

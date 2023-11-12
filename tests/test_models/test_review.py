@@ -4,6 +4,7 @@ import unittest
 import json
 import pep8
 import datetime
+
 from models.review import Review
 from models.base_model import BaseModel
 
@@ -43,7 +44,6 @@ class TestReview(unittest.TestCase):
             self.assertIsInstance(Review.place_id, str)
             self.assertIsInstance(Review.user_id, str)
             self.assertIsInstance(Review.text, str)
-
 
 if __name__ == '__main__':
     unittest.main()
