@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """File Storage Module"""
-
 import json
 from models.place import Place
 from models.base_model import BaseModel
@@ -10,10 +9,12 @@ from models.city import City
 from models.state import State
 from models.review import Review
 
+
 class FileStorage():
     """
     FileStorage Class:
-    Handles serialization and deserialization of objects to and from a JSON file.
+    Handles serialization and deserialization of objects
+    to and from a JSON file.
     """
 
     __file_path = "file.json"
