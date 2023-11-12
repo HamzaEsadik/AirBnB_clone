@@ -1,28 +1,27 @@
 #!/usr/bin/python3
-"""Module for test User class"""
+"""Module for testing the User class"""
 import unittest
-import json
 import pep8
-import datetime
 from models.user import User
 from models.base_model import BaseModel
 
 
 class TestUser(unittest.TestCase):
     """Test User class implementation"""
+
     def test_doc_module(self):
-        """Module documentation"""
+        """Check module documentation"""
         doc = User.__doc__
         self.assertGreater(len(doc), 1)
 
-    def test_pep8_conformance_base_model(self):
+    def test_pep8_conformance_user(self):
         """Test that models/user.py conforms to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/user.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def test_pep8_conformance_test_base_model(self):
+    def test_pep8_conformance_test_user(self):
         """Test that tests/test_models/test_user.py conforms to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
         res = pep8style.check_files(['tests/test_models/test_user.py'])
@@ -30,12 +29,12 @@ class TestUser(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_doc_constructor(self):
-        """Constructor documentation"""
+        """Check constructor documentation"""
         doc = User.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
     def test_class(self):
-        """Validate the types of the attributes an class"""
+        """Validate the types of the attributes and class"""
         with self.subTest(msg='Inheritance'):
             self.assertTrue(issubclass(User, BaseModel))
 
