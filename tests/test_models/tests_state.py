@@ -26,5 +26,6 @@ class TestState(unittest.TestCase):
         with self.subTest(msg='Attributes'):
             self.assertIsInstance(State.name, str)
 
+
 if __name__ == '__main__':
     unittest.main()

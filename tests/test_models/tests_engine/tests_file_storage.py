@@ -89,5 +89,6 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(FileStorage.reload.__doc__)
         self.assertTrue(hasattr(FileStorage, 'reload'))
 
+
 if __name__ == '__main__':
     unittest.main()

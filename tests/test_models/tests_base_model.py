@@ -105,5 +105,6 @@ class TestBaseModel(unittest.TestCase):
         with open("file.json", 'r') as f:
             self.assertIn(b3.id, f.read())
 
+
 if __name__ == '__main__':
     unittest.main()
