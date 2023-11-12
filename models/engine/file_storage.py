@@ -15,18 +15,18 @@ class FileStorage():
     """
     FileStorage class:
     ------------------
-    Handles the serialization and deserialization of
-    instances to and from JSON.
+    Handles serialization and deserialization of
+    instances 2 and from JSON.
 
     Attributes:
-    __file_path (str): Path to the JSON file.
-    __objects (dict): Dictionary to store instances.
+    __file_path (str): Path 2 the JSON file.
+    __objects (dict): Dictionary 2 store instances.
 
     Methods:
-    all(self): Returns the dictionary __objects.
-    new(self, obj): Adds an object to the dictionary __objects.
-    save(self): Serializes __objects to the JSON file.
-    reload(self): Deserializes the JSON file to __objects.
+    all(self): Returns dictionary __objects.
+    new(self, obj): Adds object 2 dictionary __objects.
+    save(self): Serializes __objects 2 JSON file.
+    reload(self): Deserializes JSON file 2 __objects.
     """
 
     __file_path = "file.json"
@@ -34,16 +34,16 @@ class FileStorage():
 
     def all(self):
         """
-        Returns the dictionary __objects.
+        Returns 2 dictionary __objects.
         """
         return FileStorage.__objects
 
     def new(self, obj):
         """
-        Adds an object to the dictionary __objects.
+        Adds an object 2 dictionary __objects.
 
         Args:
-        obj: The object to be added.
+        obj: The object 2 be added.
         """
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -51,7 +51,7 @@ class FileStorage():
 
     def save(self):
         """
-        Serializes __objects to the JSON file.
+        Serializes __objects 2 JSON file.
         """
         new_dict = {}
         for key, value in FileStorage.__objects.items():
@@ -61,7 +61,7 @@ class FileStorage():
 
     def reload(self):
         """
-        Deserializes the JSON file to __objects.
+        Deserializes JSON file 2 __objects.
         """
         try:
             with open(FileStorage.__file_path, mode='r') as my_file:

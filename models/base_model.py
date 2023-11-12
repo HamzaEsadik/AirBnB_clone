@@ -8,7 +8,7 @@ import models
 
 
 class BaseModel():
-    '''class BaseModel'''
+    '''baseModel class'''
     def __init__(self, *args, **kwargs):
         '''class constructor for class BaseModel'''
         if kwargs:
@@ -27,17 +27,17 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        '''string of BaseModel instance'''
+        '''string BaseModel instance'''
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-        '''updates 'updated_at' instance with current datetime'''
+        '''updates 'updated_at' instance with current date/time'''
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        '''dictionary representation of instance'''
+        '''dictionary representation ==> instance'''
         new_dict = dict(self.__dict__)
         new_dict['created_at'] = self.__dict__['created_at'].isoformat()
         new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()

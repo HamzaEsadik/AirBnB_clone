@@ -4,7 +4,7 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    '''represent a class User'''
+    '''user class'''
 
     email = ""
     password = ""
