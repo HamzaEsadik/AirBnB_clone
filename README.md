@@ -29,3 +29,7 @@ The command interpreter is a text-based interface that enables users to interact
    ```
    python airbnb_cli.py
    ```
+
+## How to Use
+
+Once the command interpreter is running, you can interact with the Airbnb clone by entering commands. Here are some of the available commands:
