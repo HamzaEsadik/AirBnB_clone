@@ -72,3 +72,9 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
    > create_user AliceSmith
    User AliceSmith created it successfully.
    ```
+
+2. **Creating a Listing:**
+   ```
+   > create_listing "Downtown Loft" 4 "456 Oak St"
+   Listing "Downtown Loft" created successfully.
+   ```
