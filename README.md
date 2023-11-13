@@ -64,3 +64,11 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
   ```
   > exit
   ```
+
+## Examples
+
+1. **Creating a User:**
+   ```
+   > create_user AliceSmith
+   User AliceSmith created it successfully.
+   ```
