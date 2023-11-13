@@ -49,3 +49,8 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
   ```
   > book_accommodation JohnDoe "Cozy Apartment" 2023-12-01 2023-12-10
   ```
+
+- `list_accommodations`: List all available accommodations.
+  ```
+  > list_accommodations
+  ```
