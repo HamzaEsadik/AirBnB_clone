@@ -24,3 +24,8 @@ The command interpreter is a text-based interface that enables users to interact
    ```
    pip install -r requirements.txt
    ```
+
+3. **Run the Command Interpreter:**
+   ```
+   python airbnb_cli.py
+   ```
