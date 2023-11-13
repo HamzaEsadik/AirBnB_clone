@@ -29,7 +29,7 @@ class FileStorage():
     reload(self): Deserializes JSON file 2 __objects.
     """
 
-    __file_path = "file.json"
+    __file_path = 'file.json'
     __objects = {}
 
     def all(self):
