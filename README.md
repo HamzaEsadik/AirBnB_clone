@@ -85,3 +85,10 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
    > book_accommodation AliceSmith "Downtown Loft" 2023-11-20 2023-11-25
    Accommodation booked successfully for AliceSmith from 2023-11-20 to 2023-11-25.
    ```
+
+4. **Listing Accommodations:**
+   ```
+   > list_accommodations
+   Available Accommodations:
+   1. "Downtown Loft" - Max Guests: 4 - Address: 456 Oak St
+   ```
