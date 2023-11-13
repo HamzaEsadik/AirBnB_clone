@@ -20,3 +20,7 @@ The command interpreter is a text-based interface that enables users to interact
    cd airbnb-clone-python
    ```
 
+2. **Install Dependencies:**
+   ```
+   pip install -r requirements.txt
+   ```
