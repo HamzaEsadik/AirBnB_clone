@@ -33,3 +33,9 @@ The command interpreter is a text-based interface that enables users to interact
 ## How to Use
 
 Once the command interpreter is running, you can interact with the Airbnb clone by entering commands. Here are some of the available commands:
+
+
+- `create_user`: Create a new user account.
+  ```
+  > create_user JohnDoe
+  ```
