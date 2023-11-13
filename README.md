@@ -44,3 +44,8 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
   ```
   > create_listing "Cozy Apartment" 2 "123 Main St"
   ```
+
+- `book_accommodation`: Book an accommodation for a specific user.
+  ```
+  > book_accommodation JohnDoe "Cozy Apartment" 2023-12-01 2023-12-10
+  ```
