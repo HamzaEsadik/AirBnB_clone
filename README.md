@@ -92,3 +92,10 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
    Available Accommodations:
    1. "Downtown Loft" - Max Guests: 4 - Address: 456 Oak St
    ```
+
+5. **User Bookings:**
+   ```
+   > user_bookings AliceSmith
+   Bookings for User AliceSmith:
+   1. "Downtown Loft" - Check-in: 2023-11-20 - Check-out: 2023-11-25
+   ```
