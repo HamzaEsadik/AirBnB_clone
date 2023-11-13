@@ -78,3 +78,10 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
    > create_listing "Downtown Loft" 4 "456 Oak St"
    Listing "Downtown Loft" created successfully.
    ```
+
+
+3. **Booking an Accommodation:**
+   ```
+   > book_accommodation AliceSmith "Downtown Loft" 2023-11-20 2023-11-25
+   Accommodation booked successfully for AliceSmith from 2023-11-20 to 2023-11-25.
+   ```
