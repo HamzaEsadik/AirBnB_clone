@@ -39,3 +39,8 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
   ```
   > create_user JohnDoe
   ```
+
+- `create_listing`: Create a new accommodation listing.
+  ```
+  > create_listing "Cozy Apartment" 2 "123 Main St"
+  ```
