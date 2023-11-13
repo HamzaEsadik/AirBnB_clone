@@ -102,8 +102,8 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
 
 ## Created and Reviewed By:
 ```
-Hamza Esadik
+Hamza Esadik | hamza.esadik.m@gmail.com
 ```
 ```
-Yassine Amgarou
+Yassine Amgarou | yassineamgarou@gmail.com
 ```
