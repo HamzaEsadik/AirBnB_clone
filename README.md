@@ -54,3 +54,13 @@ Once the command interpreter is running, you can interact with the Airbnb clone 
   ```
   > list_accommodations
   ```
+
+- `user_bookings`: Display the bookings for a specific user.
+  ```
+  > user_bookings JohnDoe
+  ```
+
+- `exit` or `quit`: Exit the command interpreter.
+  ```
+  > exit
+  ```
