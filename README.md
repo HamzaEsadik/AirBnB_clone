@@ -10,3 +10,13 @@ This project is a simplified Python implementation of an Airbnb clone. It aims t
 ## Command Interpreter
 
 The command interpreter is a text-based interface that enables users to interact with the Airbnb clone. It interprets user commands and performs corresponding actions, such as creating listings, booking accommodations, and managing user accounts.
+
+
+## How to Start
+
+1. **Clone the Repository:**
+   ```
+   git clone https://github.com/your-username/airbnb-clone-python.git
+   cd airbnb-clone-python
+   ```
+
